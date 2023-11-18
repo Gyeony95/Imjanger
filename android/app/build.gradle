@@ -49,6 +49,7 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled true // 플러터에서 멀티덱스 허용 해줘야함
     }
 
     buildTypes {
