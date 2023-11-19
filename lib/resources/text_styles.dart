@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:imjanger/resource/fonts.dart';
+import 'package:imjanger/resources/fonts.dart';
 
 class TextStyles {
   static TextStyle preW100 = TextStyle(

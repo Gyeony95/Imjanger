@@ -7,4 +7,6 @@ abstract class Routes {
   // 로그인
   static const login = '/login';
 
+  // 메인
+  static const home = '/home';
 }

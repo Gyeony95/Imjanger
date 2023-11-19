@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:imjanger/resource/routes/routes.dart';
+import 'package:imjanger/resources/routes/routes.dart';
+import 'package:imjanger/screens/home/home_screen.dart';
 import 'package:imjanger/screens/login/login_screen.dart';
 import 'package:imjanger/screens/splash/splash_screen.dart';
 
@@ -24,6 +25,10 @@ abstract class AppPages {
         path: Routes.login,
         name: 'login',
         builder: (_, __) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: Routes.home,
+        builder: (_, __) => const HomeScreen(),
       ),
     ],
   );

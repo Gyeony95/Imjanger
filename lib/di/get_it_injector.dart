@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:imjanger/screens/home/home_view_model.dart';
 import 'package:imjanger/screens/login/login_view_model.dart';
 import 'package:imjanger/screens/splash/splash_view_model.dart';
 
@@ -9,5 +10,6 @@ class GetItInjector {
   void setUp() {
     getItInstance.registerSingleton<SplashViewModel>(SplashViewModel());
     getItInstance.registerSingleton<LoginViewModel>(LoginViewModel());
+    getItInstance.registerSingleton<HomeViewModel>(HomeViewModel());
   }
 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:imjanger/resource/routes/routes.dart';
-import 'package:imjanger/resource/styles.dart';
+import 'package:imjanger/resources/text_styles.dart';
 import 'package:imjanger/screens/base/base_screen.dart';
 import 'package:imjanger/screens/splash/splash_view_model.dart';
 
