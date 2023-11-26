@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:imjanger/screens/base/base_screen.dart';
-import 'package:imjanger/screens/map/map_view_model.dart';
+import 'package:imjanger/screens/map/map_main_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 // ignore: use_key_in_widget_constructors, must_be_immutable
-class MapScreen extends BaseScreen<MapViewModel> {
+class MapMainScreen extends BaseScreen<MapMainViewModel> {
   Completer<GoogleMapController> _controller = Completer();
 
   static const CameraPosition _kGooglePlex = CameraPosition(

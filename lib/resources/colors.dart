@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 abstract class AppColors {
   static Color transparent = Colors.transparent;
 
+  static Color white = Colors.white;
+  static Color black = Colors.black;
+
+
   // https://www.theteams.kr/teams/866/post/67528
   // 위 링크에서 가져온 그레이스케일
   static Color gray50 = const Color(0xfffafafa);

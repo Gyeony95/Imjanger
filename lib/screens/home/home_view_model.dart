@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:imjanger/screens/base/base_view_model.dart';
 import 'package:imjanger/screens/home/home_screen.dart';
-import 'package:imjanger/screens/map/map_screen.dart';
+import 'package:imjanger/screens/list/complex_list_main_screen.dart';
+import 'package:imjanger/screens/map/map_main_screen.dart';
 
 class HomeViewModel extends BaseViewModel{
-  HomeTap currentHomeTap = HomeTap.map;
+  HomeTap currentHomeTap = HomeTap.list;
 
   late List<Widget> bottomItems;
 
@@ -12,8 +13,8 @@ class HomeViewModel extends BaseViewModel{
   void onInit() {
     super.onInit();
     bottomItems = [
-      MapScreen(),
-      const SizedBox(),
+      MapMainScreen(),
+      ComplexListMainScreen(),
       const SizedBox(),
     ];
   }
@@ -23,10 +24,10 @@ class HomeViewModel extends BaseViewModel{
     if (currentHomeTap == type) return;
     switch (type) {
       case HomeTap.map:
-        bottomItems[type.code] = MapScreen();
+        bottomItems[type.code] = MapMainScreen();
         break;
       case HomeTap.list:
-        bottomItems[type.code] = const SizedBox();
+        bottomItems[type.code] = ComplexListMainScreen();
         break;
       case HomeTap.my:
         bottomItems[type.code] = const SizedBox();
