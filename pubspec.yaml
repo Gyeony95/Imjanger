@@ -62,6 +62,10 @@ dependencies:
   # Route
   go_router: ^7.0.1
 
+  # Map
+#  google_maps_cluster_manager: ^3.0.0+1
+  google_maps_flutter: ^2.5.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

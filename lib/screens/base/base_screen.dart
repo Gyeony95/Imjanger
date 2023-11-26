@@ -35,4 +35,9 @@ abstract class BaseScreen<T extends BaseViewModel> extends StatelessWidget {
   @protected
   T findWatch(BuildContext context) => context.watch<T>();
 
+  @protected
+  S findSelector<S>(BuildContext context, S Function(T) selector) {
+    return context.select(selector);
+  }
+
 }
