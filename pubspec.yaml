@@ -76,6 +76,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - .env
     - assets/images/
     - assets/svgs/
     - assets/mock_jsons/

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "446805045923",
+    "project_id": "imjang-catch-dev",
+    "storage_bucket": "imjang-catch-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446805045923:android:9f70e21f35b755fdb64516",
+        "android_client_info": {
+          "package_name": "com.gyeony.imjanger"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoSxgxx2h6SkCCaKTWeytFKcw_CW2eDrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
