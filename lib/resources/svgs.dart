@@ -10,4 +10,5 @@ class Svgs {
   static const String icHomeMy = 'assets/svgs/ic_home_my.svg';
   static const String icLeftArrow = 'assets/svgs/ic_left_arrow.svg';
   static const String icMapSearchPin = 'assets/svgs/ic_map_search_pin.svg';
+  static const String icRightArrow = 'assets/svgs/ic_right_arrow.svg';
 }

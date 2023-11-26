@@ -3,6 +3,7 @@ import 'package:imjanger/screens/base/base_view_model.dart';
 import 'package:imjanger/screens/home/home_screen.dart';
 import 'package:imjanger/screens/list/complex_list_main_screen.dart';
 import 'package:imjanger/screens/map/map_main_screen.dart';
+import 'package:imjanger/screens/my_page/my_page_main_screen.dart';
 
 class HomeViewModel extends BaseViewModel{
   HomeTap currentHomeTap = HomeTap.list;
@@ -15,7 +16,7 @@ class HomeViewModel extends BaseViewModel{
     bottomItems = [
       MapMainScreen(),
       ComplexListMainScreen(),
-      const SizedBox(),
+      MyPageMainScreen(),
     ];
   }
 
@@ -30,7 +31,7 @@ class HomeViewModel extends BaseViewModel{
         bottomItems[type.code] = ComplexListMainScreen();
         break;
       case HomeTap.my:
-        bottomItems[type.code] = const SizedBox();
+        bottomItems[type.code] = MyPageMainScreen();
         break;
     }
     currentHomeTap = type;
