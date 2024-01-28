@@ -1,7 +1,10 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:imjanger/data/model/complex_model.dart';
 import 'package:imjanger/resources/colors.dart';
 import 'package:imjanger/resources/resources.dart';
 import 'package:imjanger/resources/space.dart';
@@ -16,8 +19,14 @@ String example =
     'https://www.hapt.co.kr/news/photo/202305/158843_29118_1852.jpg';
 
 class ComplexListMainScreen extends BaseScreen<ComplexListMainViewModel> {
+
+  late BuildContext screenContext;
+
+  ComplexListMainScreen({super.key});
+
   @override
   Widget buildBody(BuildContext context) {
+    screenContext = context;
     return SafeArea(
         child: Column(
       children: [
@@ -141,17 +150,19 @@ class ComplexListMainScreen extends BaseScreen<ComplexListMainViewModel> {
   }
 
   Widget _recentComplexList() {
+    var vm = find(screenContext);
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemCount: 10,
+      itemCount: vm.recentComplexList.length,
       itemBuilder: (context, index) {
-        return _recentComplexItem(index);
+        var item = vm.recentComplexList[index];
+        return _recentComplexItem(item);
       },
     );
   }
 
-  Widget _recentComplexItem(int index) {
+  Widget _recentComplexItem(ComplexModel item) {
     return Container(
       height: 100.w,
       width: double.infinity,
@@ -176,7 +187,7 @@ class ComplexListMainScreen extends BaseScreen<ComplexListMainViewModel> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '아파트 단지 제목이지롱',
+                  item.title ?? '',
                   style: TextStyles.preW500.copyWith(
                     fontSize: 18.sp,
                     color: AppColors.gray900,
@@ -186,7 +197,7 @@ class ComplexListMainScreen extends BaseScreen<ComplexListMainViewModel> {
                 ),
                 Space.appSpace4,
                 Text(
-                  '이 단지는 이러쿵 저러쿵해서 안좋고 이게 그거고 저게 이거지롱',
+                  item.subTitle ?? '',
                   style: TextStyles.preW400.copyWith(
                     fontSize: 14.sp,
                     color: AppColors.gray700,
