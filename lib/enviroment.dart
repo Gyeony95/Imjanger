@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:imjanger/imjang_catch_app.dart';
 
@@ -17,8 +18,7 @@ class Environment {
   final BuildType _buildType;
 
   static BuildType get buildType => _instance!._buildType;
-
-  void run() {
+  Future<void> run() async {
     runApp(const ImjangCatchApp());
   }
 }

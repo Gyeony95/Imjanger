@@ -44,7 +44,6 @@ dependencies:
   firebase_crashlytics: ^3.0.15
   firebase_analytics: ^10.4.2
 
-
   #Utils
   flutter_cache_manager: ^3.3.0
   image_picker: ^0.8.6+3

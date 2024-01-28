@@ -8,6 +8,7 @@ import 'package:imjanger/resources/space.dart';
 import 'package:imjanger/resources/text_styles.dart';
 import 'package:imjanger/screens/base/base_screen.dart';
 import 'package:imjanger/screens/list/complex_list_main_view_model.dart';
+import 'package:imjanger/utils/widget_util.dart';
 import 'package:imjanger/widgets/cached_image.dart';
 import 'package:imjanger/widgets/imjang_app_bar.dart';
 
@@ -33,23 +34,21 @@ class ComplexListMainScreen extends BaseScreen<ComplexListMainViewModel> {
         child: CustomScrollView(
           slivers: [
             Space.sliverAppSpace12,
-            SliverToBoxAdapter(child: _gridMenuRow()),
+            _gridMenuRow().sv,
             Space.sliverAppSpace16,
-            SliverToBoxAdapter(child: _complexAddButton()),
+            _complexAddButton().sv,
             Space.sliverAppSpace16,
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: Text(
-                  '최근 등록된 단지',
-                  style: TextStyles.preW700.copyWith(
-                    fontSize: 20.sp,
-                  ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              child: Text(
+                '최근 등록된 단지',
+                style: TextStyles.preW700.copyWith(
+                  fontSize: 20.sp,
                 ),
               ),
-            ),
+            ).sv,
             Space.sliverAppSpace8,
-            SliverToBoxAdapter(child: _recentComplexList()),
+            _recentComplexList().sv,
           ],
         ),
       ),
