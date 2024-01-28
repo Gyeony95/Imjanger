@@ -11,8 +11,11 @@ import 'package:imjanger/firebase_options_dev.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
+  // await Firebase.initializeApp(
+  //   name: dotenv.env['FIREBASE_KEY_DEV'],
+  //   options: DevFirebaseOptions.currentPlatform,
+  // );
   await Firebase.initializeApp(
-    name: dotenv.env['FIREBASE_KEY_DEV'],
     options: DevFirebaseOptions.currentPlatform,
   );
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])

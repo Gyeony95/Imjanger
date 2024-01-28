@@ -4,14 +4,14 @@ class ComplexModel {
   String? title;
   String? subTitle;
   GeoPoint? location;
-  DateTime? createDateTime;
-  ComplexModel({this.title, this.subTitle, this.location, this.createDateTime});
+  Timestamp? createDate;
+  ComplexModel({this.title, this.subTitle, this.location, this.createDate});
 
   ComplexModel.fromDoc(DocumentSnapshot snapshot) {
     title = snapshot.get('title');
     subTitle = snapshot.get('subTitle');
-    location = GeoPoint(snapshot.get('location')['latitude'], snapshot.get('location')['longitude']);
-    createDateTime = (snapshot.get('createDateTime')  as Timestamp).toDate();
+    location = snapshot.get('location');
+    createDate = snapshot.get('createDate');
   }
 
   Map<String, dynamic> toJson() {
@@ -22,7 +22,7 @@ class ComplexModel {
       'latitude': location?.latitude,
       'longitude': location?.longitude,
     };
-    data['createDateTime'] = Timestamp.fromDate(createDateTime!);
+    data['createDate'] = createDate;
     return data;
   }
 }
