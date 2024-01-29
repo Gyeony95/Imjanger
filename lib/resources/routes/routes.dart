@@ -9,4 +9,7 @@ abstract class Routes {
 
   // 메인
   static const home = '/home';
+
+  // 단지 추가 화면
+  static const addComplex = '/addComplex';
 }

@@ -1,5 +1,7 @@
+import 'package:go_router/go_router.dart';
 import 'package:imjanger/data/api/complex/complex_api.dart';
 import 'package:imjanger/data/model/complex_model.dart';
+import 'package:imjanger/resources/routes/routes.dart';
 import 'package:imjanger/screens/base/base_view_model.dart';
 
 class ComplexListMainViewModel extends BaseViewModel{
@@ -18,5 +20,9 @@ class ComplexListMainViewModel extends BaseViewModel{
     var docs = await _api.getRecentComplex();
     recentComplexList = docs;
     notifyListeners();
+  }
+
+  void onTapAddComplex(){
+    context.goNamed(Routes.addComplex);
   }
 }

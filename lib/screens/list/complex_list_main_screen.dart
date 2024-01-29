@@ -14,6 +14,7 @@ import 'package:imjanger/screens/list/complex_list_main_view_model.dart';
 import 'package:imjanger/utils/widget_util.dart';
 import 'package:imjanger/widgets/cached_image.dart';
 import 'package:imjanger/widgets/imjang_app_bar.dart';
+import 'package:imjanger/widgets/tap_well.dart';
 
 String example =
     'https://www.hapt.co.kr/news/photo/202305/158843_29118_1852.jpg';
@@ -113,38 +114,41 @@ class ComplexListMainScreen extends BaseScreen<ComplexListMainViewModel> {
 
   // 단지 추가 버튼
   Widget _complexAddButton() {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16.w),
-      width: double.infinity,
-      height: 56.w,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: AppColors.main50,
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0x19191980),
-            offset: Offset(0, 2.w),
-            blurRadius: 4.w,
-          ),
-        ],
-      ),
-      alignment: Alignment.center,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SvgPicture.asset(
-            Svgs.icAddComplex,
-            width: 24.w,
-            height: 24.w,
-            color: AppColors.main500,
-          ),
-          Space.appSpace8,
-          Text(
-            '내 단지 추가하기',
-            style: TextStyles.preW500
-                .copyWith(fontSize: 16.sp, color: AppColors.main500),
-          )
-        ],
+    return TapWell(
+      onTap: find(screenContext).onTapAddComplex,
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 16.w),
+        width: double.infinity,
+        height: 56.w,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          color: AppColors.main50,
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0x19191980),
+              offset: Offset(0, 2.w),
+              blurRadius: 4.w,
+            ),
+          ],
+        ),
+        alignment: Alignment.center,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              Svgs.icAddComplex,
+              width: 24.w,
+              height: 24.w,
+              color: AppColors.main500,
+            ),
+            Space.appSpace8,
+            Text(
+              '내 단지 추가하기',
+              style: TextStyles.preW500
+                  .copyWith(fontSize: 16.sp, color: AppColors.main500),
+            )
+          ],
+        ),
       ),
     );
   }

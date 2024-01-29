@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:imjanger/screens/add_complex/add_complex_view_model.dart';
 import 'package:imjanger/screens/home/home_view_model.dart';
 import 'package:imjanger/screens/list/complex_list_main_view_model.dart';
 import 'package:imjanger/screens/login/login_view_model.dart';
@@ -18,5 +19,6 @@ class GetItInjector {
     getItInstance.registerSingleton<ComplexListMainViewModel>(
         ComplexListMainViewModel());
     getItInstance.registerSingleton<MyPageMainViewModel>(MyPageMainViewModel());
+    getItInstance.registerSingleton<AddComplexViewModel>(AddComplexViewModel());
   }
 }

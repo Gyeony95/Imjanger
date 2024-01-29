@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:imjanger/resources/routes/routes.dart';
+import 'package:imjanger/screens/add_complex/add_complex_screen.dart';
 import 'package:imjanger/screens/home/home_screen.dart';
 import 'package:imjanger/screens/login/login_screen.dart';
 import 'package:imjanger/screens/splash/splash_screen.dart';
@@ -29,6 +30,10 @@ abstract class AppPages {
       GoRoute(
         path: Routes.home,
         builder: (_, __) => const HomeScreen(),
+      ),
+      GoRoute(
+        path: Routes.addComplex,
+        builder: (_, __) => const AddComplexScreen(),
       ),
     ],
   );
