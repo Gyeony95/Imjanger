@@ -14,6 +14,7 @@ abstract class BaseScreen<T extends BaseViewModel> extends StatelessWidget {
       builder: (context, child){
         return Scaffold(
           backgroundColor: scaffoldBgColor,
+          bottomNavigationBar: bottomNav(context),
           body: buildBody(context),
         );
       },
@@ -25,6 +26,9 @@ abstract class BaseScreen<T extends BaseViewModel> extends StatelessWidget {
 
   @protected
   Widget buildBody(BuildContext context);
+
+  @protected
+  Widget? bottomNav(BuildContext context) => null;
 
   @protected
   T find(BuildContext context) => Provider.of<T>(context, listen: false);

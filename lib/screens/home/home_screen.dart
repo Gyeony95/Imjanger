@@ -7,6 +7,10 @@ import 'package:imjanger/resources/resources.dart';
 import 'package:imjanger/resources/text_styles.dart';
 import 'package:imjanger/screens/base/base_screen.dart';
 import 'package:imjanger/screens/home/home_view_model.dart';
+import 'package:imjanger/screens/list/complex_list_main_screen.dart';
+import 'package:imjanger/screens/map/map_main_screen.dart';
+import 'package:imjanger/screens/my_page/my_page_main_screen.dart';
+import 'package:imjanger/widgets/animated_indexed_stack.dart';
 
 enum HomeTap {
   map('지도', Svgs.icHomeMap, 0),
@@ -25,14 +29,18 @@ class HomeScreen extends BaseScreen<HomeViewModel> {
 
   @override
   Widget buildBody(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: _bottomNav(context),
-      body: findSelector<Widget>(
-          context, (vm) => vm.bottomItems[vm.currentHomeTap.code]),
+    return AnimatedIndexedStack(
+      index: findSelector<HomeTap>(context, (vm) => vm.currentHomeTap).code,
+      children: [
+        MapMainScreen(),
+        ComplexListMainScreen(),
+        MyPageMainScreen(),
+      ],
     );
   }
 
-  Widget _bottomNav(BuildContext context) {
+  @override
+  Widget bottomNav(BuildContext context) {
     return SafeArea(
       top: false,
       child: Container(
