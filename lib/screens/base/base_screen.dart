@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:imjanger/di/get_it_injector.dart';
 import 'package:imjanger/screens/base/base_view_model.dart';
+import 'package:imjanger/utils/widget_util.dart';
 import 'package:provider/provider.dart';
 
 abstract class BaseScreen<T extends BaseViewModel> extends StatelessWidget {
@@ -16,7 +17,7 @@ abstract class BaseScreen<T extends BaseViewModel> extends StatelessWidget {
           backgroundColor: scaffoldBgColor,
           bottomNavigationBar: bottomNav(context),
           body: buildBody(context),
-        );
+        ).safeArea();
       },
     );
   }
