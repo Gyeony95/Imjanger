@@ -7,18 +7,19 @@ import 'package:imjanger/screens/map/map_main_view_model.dart';
 import 'package:imjanger/screens/my_page/my_page_view_model.dart';
 import 'package:imjanger/screens/splash/splash_view_model.dart';
 
-final GetIt getItInstance = GetIt.I;
+final GetIt getIt = GetIt.I;
 
 // 종속성 주입에 사용
 class GetItInjector {
   void setUp() {
-    getItInstance.registerSingleton<SplashViewModel>(SplashViewModel());
-    getItInstance.registerSingleton<LoginViewModel>(LoginViewModel());
-    getItInstance.registerSingleton<HomeViewModel>(HomeViewModel());
-    getItInstance.registerSingleton<MapMainViewModel>(MapMainViewModel());
-    getItInstance.registerSingleton<ComplexListMainViewModel>(
+    getIt.registerSingleton<SplashViewModel>(SplashViewModel());
+    getIt.registerSingleton<LoginViewModel>(LoginViewModel());
+    getIt.registerSingleton<HomeViewModel>(HomeViewModel());
+    getIt.registerSingleton<MapMainViewModel>(MapMainViewModel());
+    getIt.registerSingleton<ComplexListMainViewModel>(
         ComplexListMainViewModel());
-    getItInstance.registerSingleton<MyPageMainViewModel>(MyPageMainViewModel());
-    getItInstance.registerSingleton<AddComplexViewModel>(AddComplexViewModel());
+    getIt.registerSingleton<MyPageMainViewModel>(MyPageMainViewModel());
+    getIt.registerSingleton<AddComplexViewModel>(AddComplexViewModel());
+    // getIt.registerFactory<AddComplexViewModel>(() => AddComplexViewModel());
   }
 }

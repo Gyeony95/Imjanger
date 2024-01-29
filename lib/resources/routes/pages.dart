@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:imjanger/resources/routes/routes.dart';
@@ -30,11 +28,15 @@ abstract class AppPages {
       GoRoute(
         path: Routes.home,
         builder: (_, __) => const HomeScreen(),
-      ),
-      GoRoute(
-        path: Routes.addComplex,
-        builder: (_, __) => const AddComplexScreen(),
+        routes: [
+          _addComplex,
+        ]
       ),
     ],
   );
+
+  static get _addComplex => GoRoute(
+        path: 'addComplex',
+        builder: (_, __) => const AddComplexScreen(),
+      );
 }

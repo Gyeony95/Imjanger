@@ -11,5 +11,5 @@ abstract class Routes {
   static const home = '/home';
 
   // 단지 추가 화면
-  static const addComplex = '/addComplex';
+  static const addComplex = '/home/addComplex';
 }

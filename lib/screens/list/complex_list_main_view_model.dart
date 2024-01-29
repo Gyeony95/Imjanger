@@ -23,6 +23,6 @@ class ComplexListMainViewModel extends BaseViewModel{
   }
 
   void onTapAddComplex(){
-    context.goNamed(Routes.addComplex);
+    context.go(Routes.addComplex);
   }
 }

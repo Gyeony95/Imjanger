@@ -10,7 +10,7 @@ abstract class BaseScreen<T extends BaseViewModel> extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<T>(
       // 종속성 찾은 직후 context 전달
-      create: (context) => getItInstance<T>()..initContext(context),
+      create: (context) => getIt<T>()..initContext(context),
       builder: (context, child){
         return Scaffold(
           backgroundColor: scaffoldBgColor,
