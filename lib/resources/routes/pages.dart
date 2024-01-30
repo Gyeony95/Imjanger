@@ -37,6 +37,6 @@ abstract class AppPages {
 
   static get _addComplex => GoRoute(
         path: 'addComplex',
-        builder: (_, __) => const AddComplexScreen(),
+        builder: (_, __) => AddComplexScreen(),
       );
 }
