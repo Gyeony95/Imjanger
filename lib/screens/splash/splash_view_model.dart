@@ -3,7 +3,7 @@ import 'package:imjanger/resources/routes/routes.dart';
 import 'package:imjanger/screens/base/base_view_model.dart';
 
 class SplashViewModel extends BaseViewModel{
-  String test = 'test1';
+  String test = '안녕하세요!';
 
   @override
   void onInit(){
