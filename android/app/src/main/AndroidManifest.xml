@@ -6,7 +6,8 @@
     <application
         android:label="imjanger"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:xlargeScreens="false">
 
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAqrg06pbGeDYZrygo373aUwjNDHwFrJb8"/>
