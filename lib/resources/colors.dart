@@ -28,4 +28,26 @@ abstract class AppColors {
   static Color main300 = const Color(0xffD0A2F7);
   static Color main400 = const Color(0xffC683D7);
   static Color main500 = const Color(0xff7071E8);
+
+
+  static Color primaryBase = const Color(0xFF6A3EA1);
+  static Color primaryDark = const Color(0xFF3A2258);
+  static Color primaryLight = const Color(0xFFEFE9F7);
+  static Color primaryBackground = const Color(0xFFFAF8FC);
+
+  static Color secondaryBase = const Color(0xFFDEDC52);
+  static Color secondaryDark = const Color(0xFF565510);
+  static Color secondaryLight = const Color(0xFFF7F6D4);
+
+  static Color successBase = const Color(0xFF60D889);
+  static Color successDark = const Color(0xFF1F7F40);
+  static Color successLight = const Color(0xFFDAF6E4);
+
+  static Color errorBase = const Color(0xFFCE3A54);
+  static Color errorDark = const Color(0xFF5A1623);
+  static Color errorLight = const Color(0xFFF7DEE3);
+
+  static Color warningBase = const Color(0xFFF8C715);
+  static Color warningDark = const Color(0xFF725A03);
+  static Color warningLight = const Color(0xFFFDEBAB);
 }

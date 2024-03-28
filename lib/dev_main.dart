@@ -1,5 +1,3 @@
-
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,9 +13,7 @@ void main() async {
   //   name: dotenv.env['FIREBASE_KEY_DEV'],
   //   options: DevFirebaseOptions.currentPlatform,
   // );
-  await Firebase.initializeApp(
-    options: DevFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DevFirebaseOptions.currentPlatform);
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
