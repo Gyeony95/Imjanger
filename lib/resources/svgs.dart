@@ -4,10 +4,13 @@ class Svgs {
   Svgs._();
 
   static const String icAddComplex = 'assets/svgs/ic_add_complex.svg';
+  static const String icCheck = 'assets/svgs/ic_check.svg';
   static const String icCheckboxChecked = 'assets/svgs/ic_checkbox_checked.svg';
   static const String icCheckboxUncheck = 'assets/svgs/ic_checkbox_uncheck.svg';
   static const String icCheveronLeft = 'assets/svgs/ic_cheveron_left.svg';
+  static const String icDeleteIcon = 'assets/svgs/ic_delete_icon.svg';
   static const String icDocumentText = 'assets/svgs/ic_document_text.svg';
+  static const String icDragHandler = 'assets/svgs/ic_drag_handler.svg';
   static const String icEmojiHappy = 'assets/svgs/ic_emoji_happy.svg';
   static const String icFolderComplex = 'assets/svgs/ic_folder_complex.svg';
   static const String icHomeList = 'assets/svgs/ic_home_list.svg';

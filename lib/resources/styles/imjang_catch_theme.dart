@@ -22,6 +22,8 @@ class ImjangCatchTheme {
         elevation: 0,
         iconTheme: IconThemeData(color: colorScheme.primary),
       ),
+      primaryColorLight: AppColors.primaryLight,
+      primaryColorDark: AppColors.primaryDark,
       iconTheme: IconThemeData(color: colorScheme.onPrimary),
       canvasColor: colorScheme.background,
       scaffoldBackgroundColor: colorScheme.background,

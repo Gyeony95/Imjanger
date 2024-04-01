@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -20,7 +21,6 @@ String example =
     'https://www.hapt.co.kr/news/photo/202305/158843_29118_1852.jpg';
 
 class ComplexListMainScreen extends BaseScreen<ComplexListMainViewModel> {
-
   late BuildContext screenContext;
 
   ComplexListMainScreen({super.key});
@@ -40,24 +40,20 @@ class ComplexListMainScreen extends BaseScreen<ComplexListMainViewModel> {
   Widget _scrollBody() {
     return Expanded(
       child: Container(
-        color: AppColors.gray100,
+        color: AppColors.white,
         child: CustomScrollView(
           slivers: [
-            Space.sliverAppSpace12,
-            _gridMenuRow().sv,
-            Space.sliverAppSpace16,
-            _complexAddButton().sv,
-            Space.sliverAppSpace16,
+            Space.sliverAppSpace24,
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              padding: EdgeInsets.only(left: 16.w),
               child: Text(
-                '최근 등록된 단지',
-                style: TextStyles.preW700.copyWith(
-                  fontSize: 20.sp,
+                '내가 등록한 아파트 단지',
+                style: TextStyles.pre(400, size: TextStyles.textSm).copyWith(
+                  color: AppColors.gray700,
                 ),
               ),
             ).sv,
-            Space.sliverAppSpace8,
+            Space.sliverAppSpace12,
             _recentComplexList().sv,
           ],
         ),
@@ -168,56 +164,62 @@ class ComplexListMainScreen extends BaseScreen<ComplexListMainViewModel> {
 
   Widget _recentComplexItem(ComplexModel item) {
     return Container(
-      height: 100.w,
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 16.w).copyWith(bottom: 8.w),
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.w),
+      margin: EdgeInsets.symmetric(horizontal: 16.w),
       decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0x19191980),
-            offset: Offset(0, 2.w),
-            blurRadius: 4.w,
-          ),
+        borderRadius: BorderRadius.circular(8),
+        color: Theme.of(screenContext).primaryColorLight,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _itemHeader(item),
+          Container(
+              color: AppColors.gray400, height: 1.w, width: double.infinity),
+          _itemBody(item),
         ],
       ),
+    );
+  }
+
+  Widget _itemHeader(ComplexModel item) {
+    return Container(
+      height: 44.w,
+      padding: EdgeInsets.symmetric(horizontal: 12.w),
+      alignment: Alignment.centerLeft,
+      child: Text(
+        item.title ?? '',
+        style: TextStyles.preW700.copyWith(
+          fontSize: TextStyles.textBase,
+          color: AppColors.gray900,
+        ),
+      ),
+    );
+  }
+
+  Widget _itemBody(ComplexModel item) {
+    return Container(
+      padding: EdgeInsets.all(12.w).copyWith(top: 8.w),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            width: 242.w,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  item.title ?? '',
-                  style: TextStyles.preW500.copyWith(
-                    fontSize: 18.sp,
-                    color: AppColors.gray900,
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Space.appSpace4,
-                Text(
-                  item.subTitle ?? '',
-                  style: TextStyles.preW400.copyWith(
-                    fontSize: 14.sp,
-                    color: AppColors.gray700,
-                  ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
+            width: 200.w,
+            child: Text(
+              item.subTitle ?? '',
+              style: TextStyles.preW400.copyWith(
+                fontSize: TextStyles.text2Xs,
+                color: Theme.of(screenContext).primaryColorDark,
+              ),
+              maxLines: 4,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
-          Space.appSpace8,
+          const Spacer(),
           CachedImage(
             url: example,
-            height: 76.w,
-            width: 76.w,
-            borderRadius: BorderRadius.circular(16),
+            height: 70.w,
+            width: 70.w,
+            borderRadius: BorderRadius.circular(8),
           ),
         ],
       ),

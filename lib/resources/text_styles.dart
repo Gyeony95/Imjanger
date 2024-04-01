@@ -1,5 +1,7 @@
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:imjanger/resources/fonts.dart';
 
 class TextStyles {
@@ -47,4 +49,19 @@ class TextStyles {
     fontFamily: Fonts.pretendardVariable,
     fontVariations: FontVariations.w900,
   );
+
+  static TextStyle pre(double weight, {double? size}) => TextStyle(
+    fontVariations: [FontVariation('wght', weight)],
+    fontSize: size ?? textBase,
+  );
+
+
+  static double get textXs => 10.sp;
+  static double get text2Xs => 12.sp;
+  static double get textSm => 14.sp;
+  static double get textBase => 16.sp;
+  static double get textLg => 20.sp;
+  static double get textXl => 24.sp;
+  static double get text2Xl => 32.sp;
+  static double get text3Xl => 40.sp;
 }
