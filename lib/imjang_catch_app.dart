@@ -16,7 +16,7 @@ class ImjangCatchApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(390, 844), // iphone 12 pro 개발 기준 해상도
+      designSize: const Size(360, 780),
       child: ModelBinding(
         initialModel: ImjangCatchOptions(
           themeMode: ThemeMode.system,

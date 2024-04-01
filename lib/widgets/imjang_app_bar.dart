@@ -21,8 +21,11 @@ class ImJangAppBar extends StatelessWidget {
     return Container(
       alignment: Alignment.centerLeft,
       width: double.infinity,
-      height: 56.w,
-      decoration: BoxDecoration(color: AppColors.white),
+      height: 54.w,
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        border: Border(bottom: BorderSide(width: 1.w, color: AppColors.gray300))
+      ),
       child: Row(
         children: [
           Space.appSpace16,
@@ -30,9 +33,10 @@ class ImJangAppBar extends StatelessWidget {
             TapWell(
               onTap: onTapArrow,
               child: SvgPicture.asset(
-                Svgs.icLeftArrow,
-                width: 24.w,
-                height: 24.w,
+                Svgs.icCheveronLeft,
+                width: 20.w,
+                height: 20.w,
+                color: Theme.of(context).primaryColor,
               ),
             ),
             Space.appSpace8,
@@ -40,7 +44,8 @@ class ImJangAppBar extends StatelessWidget {
           Text(
             title,
             style: TextStyles.preW600.copyWith(
-              fontSize: 24.sp,
+              fontSize: 16.sp,
+              color: Theme.of(context).primaryColor,
             ),
           )
         ],
