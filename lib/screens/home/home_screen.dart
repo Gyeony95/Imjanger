@@ -13,9 +13,9 @@ import 'package:imjanger/screens/my_page/my_page_main_screen.dart';
 import 'package:imjanger/widgets/animated_indexed_stack.dart';
 
 enum HomeTap {
-  map('지도', Svgs.icHomeMap, 0),
-  list('목록', Svgs.icHomeList, 1),
-  my('MY', Svgs.icHomeMy, 2);
+  map('지도', Svgs.icLocationMarker, 0),
+  list('목록', Svgs.icDocumentText, 1),
+  my('MY', Svgs.icEmojiHappy, 2);
 
   final String title;
   final String iconPath;
@@ -67,14 +67,14 @@ class HomeScreen extends BaseScreen<HomeViewModel> {
   Widget _bottomNavItem(HomeTap item, BuildContext context) {
     Color itemColor = AppColors.gray600;
     if (find(context).currentHomeTap == item) {
-      itemColor = AppColors.main500;
+      itemColor = Theme.of(context).primaryColor;
     }
     return InkWell(
       onTap: () {
         find(context).onBottomItemTapped(item);
       },
       child: SizedBox(
-        width: 130.w,
+        width: 120.w,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
