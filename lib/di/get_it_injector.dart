@@ -19,7 +19,6 @@ class GetItInjector {
     getIt.registerSingleton<ComplexListMainViewModel>(
         ComplexListMainViewModel());
     getIt.registerSingleton<MyPageMainViewModel>(MyPageMainViewModel());
-    getIt.registerSingleton<AddComplexViewModel>(AddComplexViewModel());
-    // getIt.registerFactory<AddComplexViewModel>(() => AddComplexViewModel());
+    getIt.registerFactory<AddComplexViewModel>(() => AddComplexViewModel());
   }
 }

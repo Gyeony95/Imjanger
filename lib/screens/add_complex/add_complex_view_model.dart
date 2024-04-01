@@ -1,5 +1,5 @@
+import 'package:go_router/go_router.dart';
 import 'package:imjanger/screens/base/base_view_model.dart';
-import 'package:imjanger/screens/home/home_screen.dart';
 
 class AddComplexViewModel extends BaseViewModel{
 
@@ -7,5 +7,12 @@ class AddComplexViewModel extends BaseViewModel{
   void onInit() {
     super.onInit();
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  void onTapBack() => context.pop();
 
 }

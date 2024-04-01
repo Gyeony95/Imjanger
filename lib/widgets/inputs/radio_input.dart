@@ -3,15 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:imjanger/resources/colors.dart';
 import 'package:imjanger/resources/resources.dart';
+import 'package:imjanger/resources/space.dart';
 import 'package:imjanger/resources/text_styles.dart';
 import 'package:imjanger/widgets/inputs/select_item.dart';
-
-enum RadioUiType {
-  circle(),
-  square();
-
-  const RadioUiType();
-}
 
 class RadioInput<T> extends StatefulWidget {
   const RadioInput({
@@ -21,7 +15,6 @@ class RadioInput<T> extends StatefulWidget {
     this.initItem,
     this.isDisable = false,
     this.isRow = false,
-    this.uiType = RadioUiType.circle,
   }) : super(key: key);
 
   final ValueChanged<SelectItem?>? onSelectItem;
@@ -29,7 +22,6 @@ class RadioInput<T> extends StatefulWidget {
   final T? initItem;
   final bool isDisable;
   final bool isRow;
-  final RadioUiType uiType;
 
   @override
   State<RadioInput> createState() => _RadioInputState();
@@ -131,15 +123,7 @@ class _RadioInputState extends State<RadioInput> {
   Widget _radioItem(int index) {
     var value = widget.selectItems[index];
     bool isSelect = value.id == selectItem?.id;
-
-    switch (widget.uiType) {
-      case RadioUiType.circle:
-        return _uiCircle(value, index, isSelect);
-      case RadioUiType.square:
-        return _uiSquare(value, index, isSelect);
-      default:
-        return _uiCircle(value, index, isSelect);
-    }
+    return _uiCircle(value, index, isSelect);
   }
 
   Widget _uiCircle(SelectItem value, int index, bool isSelect) {
@@ -153,75 +137,51 @@ class _RadioInputState extends State<RadioInput> {
         setState(() {});
       },
       child: SizedBox(
-        height: 32,
+        height: 46.w,
         child: Row(
           children: [
             IgnorePointer(child: radioBtn(isSelect, isHovers[index])),
-            const SizedBox(width: 4),
+            Space.appSpace12,
             Text(
               value.title,
-              style: TextStyles.preW400.copyWith(
-                color: AppColors.gray600,
-                fontSize: 14,
+              style: TextStyles.preW500.copyWith(
+                color: isSelect ? Theme.of(context).primaryColor : AppColors.gray900,
+                fontSize: TextStyles.textBase,
               ),
             ),
-            const SizedBox(width: 8),
+            Space.appSpace8
           ],
         ),
       ),
     );
   }
 
-  Widget _uiSquare(SelectItem value, int index, bool isSelect) {
-    Color fontColor = AppColors.gray600;
-    Color borderColor = AppColors.gray300;
-    double lastBorder = 0;
-
-    if (widget.selectItems.length == index) {
-      lastBorder = 1;
-    }
-
-    if (isSelect) {
-      fontColor = AppColors.main500;
-      borderColor = AppColors.main500;
-      lastBorder = 1;
-    }
-
-    return InkWell(
-      onTap: () {
-        if (widget.isDisable) return;
-        onSelectItem(value);
-      },
-      child: Container(
-        height: 38,
-        alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        decoration: BoxDecoration(
-          color: AppColors.white,
-          border: Border(
-            top: BorderSide(width: 1, color: borderColor),
-            bottom: BorderSide(width: 1, color: borderColor),
-            left: BorderSide(width: 1, color: borderColor),
-            right: BorderSide(width: lastBorder, color: borderColor),
-          ),
-        ),
-        child: Text(
-          value.title,
-          textAlign: TextAlign.center,
-          style: TextStyles.preW400.copyWith(
-            color: fontColor,
-            fontSize: 13,
-          ),
-        ),
-      ),
-    );
-  }
-
   Widget radioBtn(bool isSelect, bool isHover) {
-    return SvgPicture.asset(
-      isSelect ? Svgs.icRadioChecked : Svgs.icRadioUncheck, width: 24.w,
+    if(isSelect == false){
+      return Container(
+        width: 24.w,
+        height: 24.w,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(color: AppColors.gray700, width: 1.w),
+          color: AppColors.white,
+        ),
+      );
+    }
+    return Container(
+      width: 24.w,
       height: 24.w,
-      color: isSelect ? AppColors.main500 : AppColors.gray900,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: Theme.of(context).primaryColor,
+      ),
+      child: SvgPicture.asset(
+        Svgs.icCheck,
+        width: 16.w,
+        height: 16.w,
+        color: AppColors.white,
+      ),
     );
   }
 
