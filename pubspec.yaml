@@ -42,7 +42,7 @@ dependencies:
   cloud_firestore: ^4.4.3
   firebase_storage: ^11.0.14
   firebase_crashlytics: ^3.0.15
-  firebase_analytics: ^10.4.2
+  firebase_analytics: ^10.8.9
 
   #Utils
   flutter_cache_manager: ^3.3.0
