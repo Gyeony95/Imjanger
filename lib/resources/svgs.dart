@@ -19,6 +19,7 @@ class Svgs {
   static const String icLeftArrow = 'assets/svgs/ic_left_arrow.svg';
   static const String icLocationMarker = 'assets/svgs/ic_location_marker.svg';
   static const String icMapSearchPin = 'assets/svgs/ic_map_search_pin.svg';
+  static const String icPlus = 'assets/svgs/ic_plus.svg';
   static const String icRadioChecked = 'assets/svgs/ic_radio_checked.svg';
   static const String icRadioUncheck = 'assets/svgs/ic_radio_uncheck.svg';
   static const String icRightArrow = 'assets/svgs/ic_right_arrow.svg';
