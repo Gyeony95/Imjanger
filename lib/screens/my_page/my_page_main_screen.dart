@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,11 +14,14 @@ import 'package:imjanger/widgets/cached_image.dart';
 import 'package:imjanger/widgets/imjang_app_bar.dart';
 
 class MyPageMainScreen extends BaseScreen<MyPageMainViewModel> {
+  late BuildContext screenContext;
+
   @override
   Widget buildBody(BuildContext context) {
+    screenContext = context;
     return Column(
       children: [
-        const ImJangAppBar(title: ''),
+        const ImJangAppBar(title: '마이페이지'),
         _profileBox(),
         _menuList(),
       ],
@@ -26,23 +30,30 @@ class MyPageMainScreen extends BaseScreen<MyPageMainViewModel> {
 
   Widget _profileBox() {
     return Container(
-      height: 100.w,
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      // height: 100.w,
+      margin: EdgeInsets.symmetric(horizontal: 16.w),
       decoration: BoxDecoration(
           border:
               Border(bottom: BorderSide(color: AppColors.gray200, width: 1))),
-      child: Row(
+      child: Column(
         children: [
-          _profileImage(),
-          Space.appSpace8,
-          Text(
-            '떡상기원1일차',
-            style: TextStyles.preW700.copyWith(
-              fontSize: 18.sp,
-            ),
+          Space.appSpace24,
+          Row(
+            children: [
+              _profileImage(),
+              Space.appSpace8,
+              Text(
+                '떡상기원1일차',
+                style: TextStyles.preW700.copyWith(
+                  fontSize: TextStyles.textLg,
+                  color: AppColors.gray900,
+                ),
+              ),
+            ],
           ),
-          const Spacer(),
-          SvgPicture.asset(Svgs.icRightArrow, width: 12.w, height: 12.w),
+          Space.appSpace32,
+          _editProfileButton(),
+          Space.appSpace24,
         ],
       ),
     );
@@ -59,6 +70,32 @@ class MyPageMainScreen extends BaseScreen<MyPageMainViewModel> {
     );
   }
 
+  Widget _editProfileButton() {
+    return Container(
+      height: 38.w,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(100),
+        border:
+            Border.all(color: Theme.of(screenContext).primaryColor, width: 1.w),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SvgPicture.asset(Svgs.icPencilAlt, width: 20.w, height: 20.w),
+          Space.appSpace8,
+          Text(
+            '프로필 편집',
+            style: TextStyles.preW500.copyWith(
+              color: Theme.of(screenContext).primaryColor,
+              fontSize: TextStyles.textBase,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _menuList() {
     return Column(
       children: [...List.generate(MyPageMenuEnum.values.length, _menuItem)],
@@ -71,25 +108,20 @@ class MyPageMainScreen extends BaseScreen<MyPageMainViewModel> {
       height: 60.w,
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 16.w),
-      // decoration: BoxDecoration(
-      //   border: Border(
-      //     bottom: BorderSide(
-      //       color: AppColors.gray200,
-      //       width: 1,
-      //     ),
-      //   ),
-      // ),
       child: Row(
         children: [
           Text(
             type.title,
-            style: TextStyles.preW600.copyWith(fontSize: 16.sp),
+            style: TextStyles.preW500.copyWith(
+              fontSize: TextStyles.textBase,
+              color: AppColors.gray900,
+            ),
           ),
           const Spacer(),
           SvgPicture.asset(
-            Svgs.icRightArrow,
-            width: 12.w,
-            height: 12.w,
+            Svgs.icCheveronRight,
+            width: 16.w,
+            height: 16.w,
           ),
         ],
       ),
